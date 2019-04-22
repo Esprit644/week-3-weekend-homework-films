@@ -4,6 +4,7 @@ require ('pry')
 require_relative ('models/customer.rb')
 require_relative ('models/film.rb')
 require_relative ('models/ticket.rb')
+require_relative ('models/screening.rb')
 
 Customer.delete_all()
 Film.delete_all()
@@ -44,6 +45,14 @@ ticket3.save()
 ticket4.save()
 ticket5.save()
 ticket6.save()
+
+screening1 = Screening.new({'screenings' => '1700' , 'film_id' => film1.id})
+screening2 = Screening.new({'screenings' => '1900','film_id' => film1.id })
+screening3 = Screening.new({'screenings' => '2100', 'film_id' => film2.id})
+
+screening1.save_screening()
+screening2.save_screening()
+screening3.save_screening()
 
 Film.show_all()
 Ticket.show_all()

@@ -1,5 +1,6 @@
 
 DROP TABLE IF EXISTS tickets;
+DROP TABLE IF EXISTS screenings;
 DROP TABLE IF EXISTS films;
 DROP TABLE IF EXISTS customers;
 
@@ -16,8 +17,16 @@ CREATE TABLE films(
   price INT2
 );
 
+CREATE TABLE screenings(
+  id SERIAL4 PRIMARY KEY,
+  screenings INT2,
+  film_id INT2 REFERENCES films(id) ON DELETE CASCADE
+
+);
+
 CREATE TABLE tickets(
   id SERIAL4 PRIMARY KEY,
   cust_id INT4 REFERENCES customers(id) ON DELETE CASCADE,
   film_id INT4 REFERENCES films(id) ON DELETE CASCADE
+
 );
